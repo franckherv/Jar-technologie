@@ -161,10 +161,8 @@ class _LoginScreenState extends State<LoginScreen> {
         .then((response) {
       debugPrint(">>>>> RESPONSE ${response["success"]}");
       if (response["success"] == true) {
-        box1!.put(DBLocale.name, response["results"]['first_name']);
-        box1!.put(DBLocale.email, response["results"]['email']);
-        box1!.put(DBLocale.lastname, response["results"]['last_name']);
-
+        box1!.put(DBLocale.email, response["result"]['token_email']);
+        box1!.put(DBLocale.token, response["result"]['token_access']);
         box1!.put(DBLocale.isLogged, true);
 
         Navigator.of(context).pushNamed(

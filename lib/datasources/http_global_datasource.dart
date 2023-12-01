@@ -1,8 +1,4 @@
-
-
-
 import 'package:dio/dio.dart';
-
 import '../constants/common_variable.dart';
 import '../models/pack_model.dart';
 import '../models/service.dart';
@@ -11,7 +7,7 @@ class HttpGlobalDatasource {
   Dio dio = Dio(
     BaseOptions(baseUrl: NetworkVariable.apiBaseUrl, headers: {
        'Accept': 'application/json',
-      'Content-Type': 'application/json',
+       'Content-Type': 'application/json',
     }),
   );
 
@@ -51,29 +47,27 @@ class HttpGlobalDatasource {
      }) async {
     try {
 
-      var formData = {
+      FormData formData = FormData.fromMap( {
         "phone": phone,
         "email": email,
         "first_name": firstname,
-        "lastname": lastname,
+        "last_name": lastname,
         "city": city,
         "password": password,
         "country": country,
         "code_sponsor": code_sponsor,
    
-      };
-      
+      });
+
       Response response = await dio.post('auth/register', data: formData,
-       options: Options(
-        contentType: Headers.jsonContentType,
-        responseType: ResponseType.json,
-    ),
+    
       );
       return response.data;
     } catch (error, stacktrace) {
       throw Exception("Exception occured: $error stackTrace: $stacktrace");
     }
-  }
+  } 
+
 
    //? fetch all service 
   Future<List<Services>> serviceList() async {

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../datasources/http_global_datasource.dart';
 import '../../models/service.dart';
-import '../../utils/appbar.dart';
 import '../../utils/loading/loading_spinner.dart';
 import '../widgets/service_widget.dart';
 

@@ -70,7 +70,7 @@ class _CartScreenState extends State<CartScreen> {
     if (Provider.of<GlobalStateManager>(context).getProduitsPanier != null) {
       setState(() {
         savedProduits = Provider.of<GlobalStateManager>(context).getProduitsPanier;
-        prixTotalArticle = savedProduits.fold(0, (sum, item) => sum + (item.produits.price ?? 0 *item.qte));
+        prixTotalArticle = savedProduits.fold(0, (sum, item) => sum + (item.produits.price * item.qte));
         nbreTotalArticle = savedProduits.fold(0, (sum, item) => sum + (item.qte));
       });
     }
